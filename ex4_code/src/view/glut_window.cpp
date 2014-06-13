@@ -125,10 +125,11 @@ void GlutWindow::glutKeyboard( unsigned char glut_key, int mouse_x, int mouse_y 
     std::clog << "view::GlutWindow::glutKeyboard: no InputEventHandler attached (which could handle the event)." << std::endl;
 
   // TODO 4.1:  create keyboard-event data structure and forward it to the event handler
-  _inpEvHanPtr->keyEv.key = glut_key;
-  _inpEvHanPtr->keyEv.mouse_pos[0] = static_cast<double>(mouse_x);
-  _inpEvHanPtr->keyEv.mouse_pos[1] = static_cast<double>(mouse_y);
-  _inpEvHanPtr->handle(_inpEvHanPtr->keyEv);
+  controller::InputEventHandler::keyboard_event kE;
+  kE.key = glut_key;
+  kE.mouse_pos[0] = static_cast<double>(mouse_x);
+  kE.mouse_pos[1] = static_cast<double>(mouse_y);
+  _inpEvHanPtr->handle(kE);
   
   /*!!*/std::cerr << "!! view::GlutWindow::glutKeyboard: (PARTS ARE) UNIMPLEMENTED." << std::endl; 
 }

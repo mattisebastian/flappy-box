@@ -6,8 +6,7 @@ namespace controller
   class InputEventHandler
   {
     public:
-      keyboard_event keyEv;
-
+	
       struct keyboard_event
       {
 	char key;

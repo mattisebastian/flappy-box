@@ -26,7 +26,7 @@ namespace controller
       // Override this function to integrate new behavior and component that have to be called after the model was updated.
       virtual void step( InputEventHandler::keyboard_event const& ev = controller::InputEventHandler::keyboard_event() );
 
-      bool handle(keyboard_event const& ev){ step(ev); }
+      bool handle(keyboard_event const& ev) { step(ev); }
       
       // TODO 4.1: declare handle function ---DONE---
       // Implements abstract class InputEventHandler. Simply calls function step providing the keyboard_event ev as an argument.
