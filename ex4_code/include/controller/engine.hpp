@@ -5,7 +5,9 @@
 
 namespace controller 
 {
-  class Engine // TODO 4.1: insert base classes
+  class Engine : public controller::InputEventHandler, std::enable_shared_from_this<controller::Engine>
+  
+  // TODO 4.1: insert base classes ---DONE---
   {
     public:
         Engine(const std::shared_ptr< Logic >& = std::shared_ptr<::controller::Logic>(new ::controller::Logic(std::shared_ptr<::model::Game>(new ::model::Game()))));
@@ -24,7 +26,9 @@ namespace controller
       // Override this function to integrate new behavior and component that have to be called after the model was updated.
       virtual void step( InputEventHandler::keyboard_event const& ev = controller::InputEventHandler::keyboard_event() );
 
-      // TODO 4.1: declare handle function
+      bool handle(keyboard_event const& ev){ step(ev); }
+      
+      // TODO 4.1: declare handle function ---DONE---
       // Implements abstract class InputEventHandler. Simply calls function step providing the keyboard_event ev as an argument.
       // Input events should be provided by some input-event-provider (e.g. GlutWindow).
       // Override this function to change event distribution and processing.
