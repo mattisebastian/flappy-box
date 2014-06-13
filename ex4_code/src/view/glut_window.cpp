@@ -97,7 +97,7 @@ void GlutWindow::glutDisplay()
     throw std::out_of_range( "view::GlutWindow::glutDisplay: Could not get pointer to GlutWindow." );
 
   // TODO 4.1: use renderer to draw the model
-  _glRenderPtr->visualize_model(); 
+  win->getGlRendererPtr()->visualize_model(*win); 
   /*!!*/std::cerr << "!! view::GlutWindow::glutDisplay: (PARTS ARE) UNIMPLEMENTED." << std::endl; 
 }
 
@@ -111,7 +111,7 @@ void GlutWindow::glutReshape( int width, int height )
   win->_height= height;
 
   // TODO 4.1: use renderer to resize the view
-  _glRenderPtr->resize();
+  win->getGlRendererPtr()->resize(*win);
   /*!!*/std::cerr << "!! view::GlutWindow::glutReshape: (PARTS ARE) UNIMPLEMENTED." << std::endl; 
 }
 
@@ -121,7 +121,7 @@ void GlutWindow::glutKeyboard( unsigned char glut_key, int mouse_x, int mouse_y 
   if( ! win )
     throw std::out_of_range( "view::GlutWindow::glutKeyboard: Could not get pointer to GlutWindow." );
 
-  if( !_inpEvHanPtr )
+  if( !win->getInputEventHandler() )
     std::clog << "view::GlutWindow::glutKeyboard: no InputEventHandler attached (which could handle the event)." << std::endl;
 
   // TODO 4.1:  create keyboard-event data structure and forward it to the event handler
@@ -129,7 +129,7 @@ void GlutWindow::glutKeyboard( unsigned char glut_key, int mouse_x, int mouse_y 
   kE.key = glut_key;
   kE.mouse_pos[0] = static_cast<double>(mouse_x);
   kE.mouse_pos[1] = static_cast<double>(mouse_y);
-  _inpEvHanPtr->handle(kE);
+  win->getInputEventHandler()->handle(kE);
   
   /*!!*/std::cerr << "!! view::GlutWindow::glutKeyboard: (PARTS ARE) UNIMPLEMENTED." << std::endl; 
 }

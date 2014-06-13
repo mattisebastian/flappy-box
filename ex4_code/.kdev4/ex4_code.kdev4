@@ -12,7 +12,21 @@ Build Type=Debug
 CMake Binary=file:///usr/bin/cmake
 Environment Profile=
 Extra Arguments=
-Install Directory=
+Install Directory=file:///usr/local
+
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=ex41
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Project Target=cpp4cg4,ex41
+Working Directory=file:///home/matti/projects/cpp4cg4/
+isExecutable=false
 
 [Project]
 VersionControlSupport=kdevgit

@@ -5,7 +5,7 @@
 
 namespace controller 
 {
-  class Engine : public controller::InputEventHandler, std::enable_shared_from_this<controller::Engine>
+  class Engine : public controller::InputEventHandler, public std::enable_shared_from_this<controller::Engine>
   
   // TODO 4.1: insert base classes ---DONE---
   {

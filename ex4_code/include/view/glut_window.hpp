@@ -31,6 +31,13 @@ public:
     bool is_closed() const;
     // Allows to manually close the window before the destructor is called.
     void close();
+    
+    std::shared_ptr<view::GlRenderer> getGlRendererPtr(){return _glRenderPtr;};
+    void setGlRendererPtr(std::shared_ptr<view::GlRenderer>& rend){_glRenderPtr = rend;};
+    
+    std::shared_ptr<controller::InputEventHandler> getInputEventHandler(){return _inpEvHanPtr;};
+    void setInputEventHandler(std::shared_ptr<controller::InputEventHandler>& handler){_inpEvHanPtr = handler;};
+    
 
 private:
     // make sure this Window is the current GLUT Window.
