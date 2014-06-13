@@ -11,10 +11,12 @@ namespace view
   class GlutWindow
   {
     public:
+      
 
       // TODO 4.1: change constructor prototype so it takes
       //           additional pointers to a renderer and a event-handler. 
-      GlutWindow( const std::string& name, size_t width, size_t height );
+      GlutWindow( const std::string& name, size_t width, size_t height,  std::shared_ptr<view::GlRenderer>& glRenderPtr,
+		  std::shared_ptr<controller::InputEventHandler>& inpEvHanPtr);
       ~GlutWindow();
 
       unsigned int width() const;
@@ -43,6 +45,9 @@ namespace view
       size_t      _width;
       size_t      _height;
       int         _glut_win_id;
+      
+      std::shared_ptr<view::GlRenderer> _glRenderPtr;
+      std::shared_ptr<controller::InputEventHandler> _inpEvHanPtr;
 
       // TODO 4.1: add member variables for references to event handler and renderer
 

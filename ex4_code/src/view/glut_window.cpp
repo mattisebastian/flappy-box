@@ -6,10 +6,13 @@
 
 using namespace ::view;
 
-GlutWindow::GlutWindow( const std::string& name, size_t width, size_t height )
+GlutWindow::GlutWindow( const std::string& name, size_t width, size_t height, std::shared_ptr<view::GlRenderer>& glRenderPtr,
+			std::shared_ptr<controller::InputEventHandler>& inpEvHanPtr)
 : _name( name )
 , _width( width )
 , _height( height )
+, _glRenderPtr( glRenderPtr )
+, _inpEvHanPtr( inpEvHanPtr )
 {
   // TODO 4.1: assign input event handler and renderer
   /*!!*/std::cerr << "!! view::GlutWindow::GlutWindow: (PARTS ARE) UNIMPLEMENTED." << std::endl; 
