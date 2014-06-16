@@ -11,18 +11,21 @@ namespace view
 class GlutWindow
 {
 public:
-
-
-    // TODO 4.1: change constructor prototype so it takes
+    // 4.1: change constructor prototype so it takes
     //           additional pointers to a renderer and a event-handler.
-    GlutWindow( const std::string& name, size_t width, size_t height,  std::shared_ptr<view::GlRenderer>& glRenderPtr,
-                std::shared_ptr<controller::InputEventHandler>& inpEvHanPtr);
+    GlutWindow( const std::string& name, size_t width, size_t height,
+		std::shared_ptr<view::GlRenderer>& glRenderPtr, std::shared_ptr<controller::InputEventHandler>& inpEvHanPtr );
     ~GlutWindow();
 
     unsigned int width() const;
     unsigned int height() const;
 
-    // TODO 4.1: declare getters for event handler and renderer
+    // 4.1: declare getters for event handler and renderer
+	std::shared_ptr<view::GlRenderer> getGlRendererPtr() { return _glRenderPtr; };
+	void setGlRendererPtr(std::shared_ptr<view::GlRenderer>& rend) { _glRenderPtr = rend; };
+
+	std::shared_ptr<controller::InputEventHandler> getInputEventHandler() { return _inpEvHanPtr; };
+	void setInputEventHandler(std::shared_ptr<controller::InputEventHandler>& handler) { _inpEvHanPtr = handler; };
 
     // Request window redisplay.
     void invalidate();
@@ -32,13 +35,6 @@ public:
     // Allows to manually close the window before the destructor is called.
     void close();
     
-    std::shared_ptr<view::GlRenderer> getGlRendererPtr(){return _glRenderPtr;};
-    void setGlRendererPtr(std::shared_ptr<view::GlRenderer>& rend){_glRenderPtr = rend;};
-    
-    std::shared_ptr<controller::InputEventHandler> getInputEventHandler(){return _inpEvHanPtr;};
-    void setInputEventHandler(std::shared_ptr<controller::InputEventHandler>& handler){_inpEvHanPtr = handler;};
-    
-
 private:
     // make sure this Window is the current GLUT Window.
     void ensureCurrent() const;
@@ -53,10 +49,9 @@ private:
     size_t      _height;
     int         _glut_win_id;
 
-    std::shared_ptr<view::GlRenderer> _glRenderPtr;
-    std::shared_ptr<controller::InputEventHandler> _inpEvHanPtr;
-
-    // TODO 4.1: add member variables for references to event handler and renderer
+    // 4.1: add member variables for references to event handler and renderer
+	std::shared_ptr<view::GlRenderer> _glRenderPtr;
+	std::shared_ptr<controller::InputEventHandler> _inpEvHanPtr;
 
 }; // GlutWindow
 
