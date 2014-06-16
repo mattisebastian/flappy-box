@@ -1,8 +1,8 @@
-# include "view/gl_renderer.hpp"
-
-# include "view/glut_window.hpp"
-
-# include "GL/freeglut.h"
+#include "view/gl_renderer.hpp"
+#include "view/glut_window.hpp"
+#include "GL/freeglut.h"
+// 4.3
+#include "controller/logic.hpp"
 
 using namespace ::view;
 
@@ -27,8 +27,25 @@ GlRenderer::delegate_factory_type const& GlRenderer::drawable_factory() const
 
 void GlRenderer::visualize_model( GlutWindow& w )
 {
-  // TODO 4.3: initialize OpenGL context, call delegates and swap buffers
-  /*!!*/std::cerr << "!! view::GlRenderer::visualize_model: (PARTS ARE) UNIMPLEMENTED." << std::endl; 
+	// TODO 4.3: initialize OpenGL context, call delegates and swap buffers
+	glClearColor(.0f, .0f, .0f, 1.f); // 0.1f, 0.2f, 0.3f, 1.0f
+	glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT );
+
+	glMatrixMode( GL_MODELVIEW ); // GL_PROJECTION is used in resize( )
+	glLoadIdentity();
+	gluLookAt( 0, -7, 0, 0, 0, 0, 0, 0, 1 );
+
+	// TODO: call delegates
+	// 1.
+	controller::Logic logic( _game_model );
+
+	// 2.
+
+	// 3.
+
+	glutSwapBuffers();
+
+	/*!!*/std::cerr << "!! view::GlRenderer::visualize_model: (PARTS ARE) UNIMPLEMENTED." << std::endl; 
 }
 
 void GlRenderer::resize( GlutWindow& win ) 
