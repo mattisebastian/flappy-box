@@ -2,13 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <OpenAL_IncludeDir>D:\tmp\OpenAL\include\</OpenAL_IncludeDir>
-    <OpenAL_LibDir>D:\tmp\OpenAL\lib\</OpenAL_LibDir>
-    <freeALUT_IncludeDir>D:\tmp\OpenAL\include\</freeALUT_IncludeDir>
-    <freeALUT_LibDir>D:\tmp\OpenAL\lib\</freeALUT_LibDir>
-    <freeGLUT_IncludeDir>D:\Downloads\freeglut-2.8.1\include\</freeGLUT_IncludeDir>
-    <freeGLUT_LibDir>D:\Downloads\freeglut-2.8.1\lib\x86\</freeGLUT_LibDir>
-    <eigen_IncludeDir>D:\dev\libs\</eigen_IncludeDir>
+    <OpenAL_IncludeDir>Z:\cpp\cpp4cg4\OpenAL\include\</OpenAL_IncludeDir>
+    <OpenAL_LibDir>Z:\cpp\cpp4cg4\OpenAL\lib\</OpenAL_LibDir>
+    <freeALUT_IncludeDir>Z:\cpp\cpp4cg4\OpenAL\include\</freeALUT_IncludeDir>
+    <freeALUT_LibDir>Z:\cpp\cpp4cg4\OpenAL\lib\</freeALUT_LibDir>
+    <freeGLUT_IncludeDir>Z:\cpp\cpp4cg4\Freeglut\include\</freeGLUT_IncludeDir>
+    <freeGLUT_LibDir>Z:\cpp\cpp4cg4\Freeglut\lib\</freeGLUT_LibDir>
+    <eigen_IncludeDir>Z:\cpp\</eigen_IncludeDir>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
