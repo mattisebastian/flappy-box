@@ -37,7 +37,7 @@ void GlRenderer::visualize_model( GlutWindow& w )
 
 	// TODO: call delegates
 	// 1.
-	controller::Logic logic( _game_model );
+	//controller::Logic logic( _game_model );
 
 	// 2.
 
