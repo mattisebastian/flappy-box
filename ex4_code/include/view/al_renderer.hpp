@@ -5,6 +5,7 @@
 # include "factory_map.hpp"
 
 # include <AL/al.h>
+# include <AL/alut.h>
 
 namespace view 
 {
