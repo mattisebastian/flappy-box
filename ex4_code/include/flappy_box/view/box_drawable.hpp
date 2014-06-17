@@ -1,11 +1,19 @@
-#ifndef BOXDRAWABLE_H
-#define BOXDRAWABLE_H
+#pragma once
 
-# include "gl_renderer.hpp";
+#include "view/gl_renderer.hpp";
 
-class BoxDrawable : public view::GlRenderer::Drawable
+namespace flappy_box
 {
-    
-};
+	namespace view
+	{
+		class BoxDrawable : public ::view::GlRenderer::Drawable
+		{
+		public:
+			BoxDrawable();
+			~BoxDrawable();
 
-#endif // BOXDRAWABLE_H
+		private:
+		};
+
+	}
+}

@@ -2,7 +2,6 @@
 
 namespace controller 
 {
-
   class InputEventHandler
   {
     public:

@@ -1,6 +1,8 @@
-# include "view/boxaudible.hpp"
+#include "flappy_box/view/box_audible.hpp"
 
-BoxAudible()
+using namespace ::flappy_box::view;
+
+BoxAudible::BoxAudible()
 {
       // Eine Geräuschquelle _al_box_source definieren mittels alGenSources und alSource3f
       alGenSources(1, alSource3f());
@@ -18,7 +20,7 @@ BoxAudible()
       alSourcePlay();
 }  
 
-void auralize(view::AlRenderer&)
+void BoxAudible::auralize(::view::AlRenderer&)
 {
 
 }

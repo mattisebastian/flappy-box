@@ -1,22 +1,25 @@
-#ifndef BOXAUDIBLE_H
-#define BOXAUDIBLE_H
+#pragma once
 
-# include "al_renderer.hpp";
-# include "gl_renderer.hpp";
+#include "view/al_renderer.hpp";
+#include "view/gl_renderer.hpp";
 
-class BoxAudible : public view::AlRenderer::Audible
+namespace flappy_box
 {
-private:
-  
-    const double base_frequency = 400;
-    const double target_frequency = 100;
-  
-public:
-    
-    BoxAudible();
-    
-    virtual void auralize(AlRenderer&);
+	namespace view
+	{
+		class BoxAudible : public ::view::AlRenderer::Audible
+		{
+		private:
 
-};
+			const double base_frequency = 400;
+			const double target_frequency = 100;
 
-#endif // BOXAUDIBLE_H
+		public:
+			BoxAudible();
+			~BoxAudible();
+
+			virtual void auralize(::view::AlRenderer&);
+
+		};
+	}
+}
