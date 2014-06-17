@@ -1,6 +1,8 @@
 #include "view/gl_renderer.hpp"
 #include "view/glut_window.hpp"
 #include "GL/freeglut.h"
+// 4.3
+#include "model/test_game_object.hpp"
 
 using namespace ::view;
 
@@ -35,18 +37,41 @@ void GlRenderer::visualize_model( GlutWindow& w )
 	glLoadIdentity();
 	gluLookAt( 0, -7, 0, 0, 0, 0, 0, 0, 1 );
 	
-	// call delegates
+	// call delegates (delegate = explicit Drawable)
+	// (1)
+	/*
+	drawable_factory().register_module< model::TestGameObject >(
+		[](const std::shared_ptr < model::TestGameObject>& test_object)
+		{
+			return std::make_shared<view::GlRenderer::TestDrawable>();
+		}
+	);
+	*/
+	/*for (auto obj : game_model()->objects())
+		drawable_factory().create_for(obj)->visualize( *this, w );*/
+
+	// (2)
 	for (auto obj : game_model()->objects())
 	{
-		auto delegate = drawable_factory().create_for(obj);
-		delegate->visualize(*this, w);
+		auto delegate = obj->getData< Drawable >();
+
+		// no delegate for this object
+		if (delegate == nullptr)
+		{
+			obj->registerData( drawable_factory().create_for(obj) );
+			delegate = obj->getData< Drawable >();
+		}
+
+		delegate->visualize( *this, w );
 	}
-	
-	/*
-	auto delegateLogic = logic_factory().create_for(*it);
-	delegateLogic->advance(*this, ev);
-	*/
-	
+
+	// (3)
+	// im Konstruktor alle Objekte durchlaufen und den Delegate ablegen
+	/* KONSTRUKTOR:
+	for (auto obj : game_model()->objects())
+		obj->registerData(drawable_factory().create_for(obj));*/
+	/* VISUALIZE_MODEL: ...*/
+
 	glutSwapBuffers();
 
 	/*!!*/std::cerr << "!! view::GlRenderer::visualize_model: (PARTS ARE) UNIMPLEMENTED." << std::endl; 

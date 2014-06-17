@@ -24,6 +24,20 @@ AlRenderer::delegate_factory_type const& AlRenderer::audible_factory() const
 void AlRenderer::auralize_model()
 {
 	// TODO 4.3: call delegates
+	// (2)
+	for (auto obj : game_model()->objects())
+	{
+		auto delegate = obj->getData< Audible >();
+
+		// no delegate for this object
+		if (delegate == nullptr)
+		{
+			obj->registerData(audible_factory().create_for(obj));
+			delegate = obj->getData< Audible >();
+		}
+
+		delegate->auralize( *this );
+	}
 
 	/*!!*/std::cerr << "!! view::AlRenderer::auralize_model: (PARTS ARE) UNIMPLEMENTED." << std::endl; 
 }
