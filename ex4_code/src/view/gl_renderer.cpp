@@ -2,13 +2,21 @@
 #include "view/glut_window.hpp"
 #include "GL/freeglut.h"
 // 4.3
-#include "controller/logic.hpp"
+#include "model/test_game_object.hpp"
 
 using namespace ::view;
 
 GlRenderer::GlRenderer( std::shared_ptr< model::Game const > const& g )
 : _game_model( g )
-{}
+{
+	// 4.3
+	drawable_factory().register_module< model::TestGameObject >(
+		[](const std::shared_ptr < model::TestGameObject>& test_object )
+	{
+		return std::make_shared<view::GlRenderer::TestDrawable>();
+	}
+	);
+}
 
 std::shared_ptr< ::model::Game const > const& GlRenderer::game_model() const
 {
@@ -35,14 +43,18 @@ void GlRenderer::visualize_model( GlutWindow& w )
 	glLoadIdentity();
 	gluLookAt( 0, -7, 0, 0, 0, 0, 0, 0, 1 );
 
-	// TODO: call delegates
-	// 1.
-	//controller::Logic logic( _game_model );
-
-	// 2.
-
-	// 3.
-
+	// call delegates
+	for (auto o : game_model()->objects())
+	{
+		auto delegate = drawable_factory().create_for(o);
+		delegate->visualize(*this, w);
+	}
+	
+	/*
+	auto delegateLogic = logic_factory().create_for(*it);
+	delegateLogic->advance(*this, ev);
+	*/
+	
 	glutSwapBuffers();
 
 	/*!!*/std::cerr << "!! view::GlRenderer::visualize_model: (PARTS ARE) UNIMPLEMENTED." << std::endl; 

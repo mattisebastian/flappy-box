@@ -16,6 +16,15 @@ namespace view
         virtual void auralize( AlRenderer& ) = 0;
       };
 
+	  // TestAudible (4.3)
+	  struct TestAudible : public Audible
+	  {
+		  virtual void auralize(AlRenderer& a)
+		  {
+			  std::cout << "Test Sound!" << std::endl;
+		  }
+	  };
+
       typedef factory_map< model::GameObject, Audible > delegate_factory_type;
 
       AlRenderer() = delete;

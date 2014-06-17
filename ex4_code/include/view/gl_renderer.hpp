@@ -15,6 +15,15 @@ namespace view
       {
         virtual void visualize( GlRenderer&, GlutWindow& ) = 0;
       };
+	  
+	  // TestObject (4.3)
+	  struct TestDrawable : public Drawable
+	  {
+		  virtual void visualize(GlRenderer& r, GlutWindow& w)
+		  {
+			  std::cout << "Test Image!" << std::endl;
+		  }
+	  };
 
       typedef factory_map< model::GameObject, Drawable > delegate_factory_type;
 

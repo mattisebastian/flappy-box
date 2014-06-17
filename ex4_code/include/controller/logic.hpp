@@ -17,6 +17,16 @@ namespace controller
         virtual bool advance( Logic&, InputEventHandler::keyboard_event const& ) = 0;
       };
 
+	  // TestObject (4.3)
+	  struct TestObjectLogic : public ObjectLogic
+	  {
+		  virtual bool advance( Logic& l, InputEventHandler::keyboard_event const& keyboard_event )
+		  {
+			  std::cout << "Test Thinking!" << std::endl;
+			  return true;
+		  }
+	  };
+
       typedef factory_map< model::GameObject, ObjectLogic > delegate_factory_type;
 
       Logic() = delete;
