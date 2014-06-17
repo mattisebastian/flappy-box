@@ -1,21 +1,13 @@
 #include "view/gl_renderer.hpp"
 #include "view/glut_window.hpp"
 #include "GL/freeglut.h"
-// 4.3
-#include "model/test_game_object.hpp"
 
 using namespace ::view;
 
 GlRenderer::GlRenderer( std::shared_ptr< model::Game const > const& g )
 : _game_model( g )
 {
-	// 4.3
-	drawable_factory().register_module< model::TestGameObject >(
-		[](const std::shared_ptr < model::TestGameObject>& test_object )
-	{
-		return std::make_shared<view::GlRenderer::TestDrawable>();
-	}
-	);
+
 }
 
 std::shared_ptr< ::model::Game const > const& GlRenderer::game_model() const
@@ -42,11 +34,11 @@ void GlRenderer::visualize_model( GlutWindow& w )
 	glMatrixMode( GL_MODELVIEW ); // GL_PROJECTION is used in resize( )
 	glLoadIdentity();
 	gluLookAt( 0, -7, 0, 0, 0, 0, 0, 0, 1 );
-
+	
 	// call delegates
-	for (auto o : game_model()->objects())
+	for (auto obj : game_model()->objects())
 	{
-		auto delegate = drawable_factory().create_for(o);
+		auto delegate = drawable_factory().create_for(obj);
 		delegate->visualize(*this, w);
 	}
 	
