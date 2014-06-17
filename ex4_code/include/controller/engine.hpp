@@ -15,11 +15,11 @@ namespace controller
       virtual void init( int&, char** ) = 0;
       virtual void run() = 0;
 
-      std::shared_ptr< model::Game >&             game_model();
-      std::shared_ptr< model::Game const > const& game_model() const;
+      std::shared_ptr< model::Game >             game_model();
+      std::shared_ptr< model::Game const > const game_model() const;
 
-      std::shared_ptr< Logic >&             game_logic();
-      std::shared_ptr< Logic const > const& game_logic() const;
+      std::shared_ptr< Logic >             game_logic();
+      std::shared_ptr< Logic const > const game_logic() const;
 
     protected:
       // Calls everything we need to advance the game.
