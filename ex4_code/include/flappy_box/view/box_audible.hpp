@@ -3,6 +3,8 @@
 #include "view/al_renderer.hpp";
 #include "view/gl_renderer.hpp";
 
+#include "flappy_box/model/box.hpp"
+
 namespace flappy_box
 {
 	namespace view
