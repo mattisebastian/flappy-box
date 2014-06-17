@@ -54,6 +54,33 @@ TODO: Audio / Physik
 
 
 
+## 4.2 Aufrufe:
+
+### statische Funktion:
+
+static shared_ptr < Out > func (const shared_ptr < In >& in ) {return make_shared < Out > ( in_oder_anders )};
+
+register_module<T> (func)
+
+### eine member Methode:
+
+wie oben nur ohne static
+
+### functor
+
+	class meineKlasse {
+	public: 
+		shared_ptr < Out > operator() (const shared_ptr < In >& in ) {return make_shared < Out > ( in_oder_anders )}
+
+	};
+	
+
+
+
+
+
+
+
 
 
 
