@@ -20,7 +20,7 @@ namespace flappy_box
 			BoxAudible();
 			~BoxAudible();
 
-			virtual void auralize(::view::AlRenderer&);
+			virtual void auralize(::view::AlRenderer& al_renderer);
 
 		};
 	}

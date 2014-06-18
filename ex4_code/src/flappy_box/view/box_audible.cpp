@@ -18,7 +18,7 @@ BoxAudible::BoxAudible()
 	ALuint _al_box_buffer[2];
 	alutCreateBufferWaveform(ALUT_WAVEFORM_SINE, base_frequency, 45, 10000);
 	alutCreateBufferWaveform(ALUT_WAVEFORM_SINE, target_frequency, 45, 10000);
-	// oder
+	// oder ?
 	//_al_box_buffer[0] = alutCreateBufferWaveform(ALUT_WAVEFORM_SINE, base_frequency, 45, 10000);
 	//_al_box_buffer[1] = (ALUT_WAVEFORM_SINE, target_frequency, 45, 10000);
 	alGenBuffers(2, _al_box_buffer);
@@ -36,7 +36,10 @@ BoxAudible::BoxAudible()
 	alSourcePlay(_al_box_source[1]);
 }  
 
-void BoxAudible::auralize(::view::AlRenderer&)
+void BoxAudible::auralize(::view::AlRenderer& al_renderer)
 {
-	
+	//shared_ptr<flappy_box::model::Box> box = al_renderer.game_model();
+	// Verhältnis = (Ziel-Fq + 10*Absolute(z-Postition)) / Basis-Fq
+	pitch_diff = (target_frequency + 10 * BoxAbsolutWertVonZ) / base_frequency; 
+	alSourcef( _al_box_source[0], AL_PITCH, pitch_diff );
 }
