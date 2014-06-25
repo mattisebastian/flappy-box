@@ -1,0 +1,57 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x14\x00a\x00u\x00d\x00i\x00o\x00p\x00h\x00i\x00l\x00e)
+
+[CMake]
+Build Directory Count=1
+CMakeDir=/usr/share/cmake-2.8/Modules
+Current Build Directory Index=0
+ProjectRootRelative=./
+
+[CMake][CMake Build Directory 0]
+Build Directory Path=file:///media/Capybara/AAA-Studium/8-SS_14/C++%20Programmierung%20fuer%20Computergraphik/Uebung/05/ex5/build
+Build Type=Debug
+CMake Binary=file:///usr/bin/cmake
+Environment Profile=
+Extra Arguments=
+Install Directory=file:///usr/local
+
+[Launch]
+Launch Configurations=Launch Configuration 0,Launch Configuration 1
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=audiophile
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\x14\x00a\x00u\x00d\x00i\x00o\x00p\x00h\x00i\x00l\x00e\x00\x00\x00\x14\x00a\x00u\x00d\x00i\x00o\x00p\x00h\x00i\x00l\x00e)
+Dependency Action=Build
+EnvironmentGroup=default
+Executable=file:///media/Capybara/AAA-Studium/8-SS_14/C++%20Programmierung%20fuer%20Computergraphik/Uebung/05/ex5/build/audiophile
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=audiophile,audiophile
+Use External Terminal=false
+Working Directory=
+isExecutable=true
+
+[Launch][Launch Configuration 1]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=audiophile
+Type=Native Application
+
+[Launch][Launch Configuration 1][Data]
+Project Target=audiophile,audiophile
+Working Directory=file:///media/Capybara/AAA-Studium/8-SS_14/C++%20Programmierung%20fuer%20Computergraphik/Uebung/05/ex5/build/
+isExecutable=false
+
+[MakeBuilder]
+Number Of Jobs=6
+
+[Project]
+VersionControlSupport=kdevgit
+
+[SourceFileTemplates]
+LastUsedTemplate=/home/urp/.kde4/share/apps/kdevfiletemplates/template_descriptions/cpp_basic.desktop
